@@ -22,6 +22,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+     
+      # maven build command, could add other flags if needed
+      - name: Build
+        run: mvn -B clean package --file pom.xml
         
       - name: Integration Testing ( Install BAT CLI)
         run: curl -o- 'https://s3.amazonaws.com/bat-wrapper/install.sh' | bash && echo Integration Testing Complete
