@@ -26,6 +26,9 @@ jobs:
       # maven build command, could add other flags if needed
       - name: Build
         run: mvn -B clean package -DskipTests --file pom.xml
+
+      - name: Install Anypoint CLI
+        run: npm install -g anypoint-cli-v4
         
       - name: Integration Testing ( Install BAT CLI)
         run: curl -o- 'https://s3.amazonaws.com/bat-wrapper/install.sh' | bash && echo Integration Testing Complete
